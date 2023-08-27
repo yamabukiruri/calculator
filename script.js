@@ -9,10 +9,12 @@ let btn7 = document.querySelector("#btn7");
 let btn8 = document.querySelector("#btn8");
 let btn9 = document.querySelector("#btn9");
 let btn0 = document.querySelector("#btn0");
+let btnPoint = document.querySelector("#btnPoint");
 let btnPlus = document.querySelector("#btnPlus");
 let btnMinus = document.querySelector("#btnMinus");
 let btnTimes = document.querySelector("#btnTimes");
 let btnDivide = document.querySelector("#btnDivide");
+let btnRoot = document.querySelector("#btnRoot");
 let btnEqual = document.querySelector("#btnEqual");
 let btnClear = document.querySelector("#btnClear");
 let btnAllClear = document.querySelector("#btnAllClear");
@@ -48,6 +50,9 @@ btn9.addEventListener("click", () => {
 btn0.addEventListener("click", () => {
     result.value += "0";
 });
+btnPoint.addEventListener("click", () => {
+    result.value += ".";
+});
 btnPlus.addEventListener("click", () => {
     result.value += "+";
 });
@@ -60,9 +65,13 @@ btnTimes.addEventListener("click", () => {
 btnDivide.addEventListener("click", () => {
     result.value += "/";
 });
+btnRoot.addEventListener("click", () => {
+    result.value = Math.sqrt(Number(result.value));
+});
 btnEqual.addEventListener("click", () => {
     result.value = eval(result.value);     //eval()は文字列を関数として実行する。悪用される恐れがあるため、あまり使わない方がよい。
-});
+});                                        //今回は対策として、htmlでテキストボックスにdisabledを指定している。
+
 //後ろ一文字を削除
 btnClear.addEventListener("click", () => {
     result.value = result.value.slice(0, -1);
