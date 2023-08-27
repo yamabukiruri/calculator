@@ -58,6 +58,7 @@ h1 {
 
 .btn:hover {
     cursor: pointer;
+    background-color: rgb(211, 218, 225);
 }
 
 .btn:active {
